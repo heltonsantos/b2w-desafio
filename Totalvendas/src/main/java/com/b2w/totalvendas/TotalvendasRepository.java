@@ -11,6 +11,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Repository
 public class TotalvendasRepository {
 	
+	/** Esta função recupera a lista de vendas salva na pasta resources e salva em cache através da anotação @Cacheable("vendas").
+	 * @author Helton Santos
+	 * @return parsed - Lista de vendas
+	 */
 	@Cacheable("vendas")
 	public Object[][] carregarVendas() {
 		String response;

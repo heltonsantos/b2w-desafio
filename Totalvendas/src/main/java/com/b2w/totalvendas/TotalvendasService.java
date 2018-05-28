@@ -18,10 +18,20 @@ public class TotalvendasService {
 	@Autowired
 	CacheTotalvendasRepository cacheRepository;
 	
+	/** Esta função retorna uma lista com todas as vendas.
+	 * @author Helton Santos
+	 * @return vendas - Lista de vendas
+	 */
 	public Object[][] getVendas() {
 		return repository.carregarVendas();
 	}
 	
+	/** Esta função calcula e retorna o total de vendas de um determinado período.
+	 * @author Helton Santos
+	 * @param inicio - Data inicial
+	 * @param fim - Data final
+	 * @return total - Total de vendas
+	 */
 	public Double getTotalVendas(String inicio, String fim) {
 		Object[][] vendas = repository.carregarVendas();
 		Double total = new Double(0);
@@ -41,6 +51,12 @@ public class TotalvendasService {
 
 	}
 	
+	/** Esta função salva a consulta do total de vendas em cache.
+	 * @author Helton Santos
+	 * @param inicio - Data inicial
+	 * @param fim - Data final
+	 * @param total - Total de vendas
+	 */
 	private void saveCache(String inicio, String fim, Double total) {
 		
 		inicio = inicio.replaceAll("[.-]", "");

@@ -3,6 +3,7 @@ package com.b2w.totalvendas;
 import static org.junit.Assert.assertEquals;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -65,6 +66,26 @@ public class TotalvendasApplicationTests {
 
 		String expected = "763.78";
 		JSONAssert.assertEquals(expected, total, false);
+	}
+	
+	@Test
+	public void testGetTotalVendasException() throws JSONException {
+		UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(createURLWithPort("/totalvendas/getTotalVendas"))
+				.queryParam("data_inicio", "")
+				.queryParam("data_fim", "30-06-16");
+
+		String exception = restTemplate.exchange(
+				builder.toUriString(), 
+				HttpMethod.GET, HttpEntity.EMPTY, 
+				new ParameterizedTypeReference<String>() {
+				}).getBody();
+
+		JSONObject jsonObject = new JSONObject(exception);
+		String error = (String) jsonObject.get("error");
+		String except = (String) jsonObject.get("exception");
+		
+		assertEquals("Not Found", error);
+		assertEquals("javax.validation.ConstraintViolationException", except);
 	}
 
 	private String createURLWithPort(String uri) {

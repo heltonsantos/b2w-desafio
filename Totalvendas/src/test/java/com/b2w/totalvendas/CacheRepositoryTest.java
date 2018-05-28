@@ -15,18 +15,18 @@ import com.b2w.totalvendas.cache.CacheTotalvendasRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CacheRepositoryTest {
-	
+
 	@Autowired
 	CacheTotalvendasRepository repository;
-	
+
 	@Test
 	public void saveCache() {
 		CacheTotalvendas cache = new CacheTotalvendas(new Long(1), 15151.5);
-		
+
 		repository.save(cache);
-		
+
 		CacheTotalvendas cacheResponse = repository.findOne(new Long(1));
-		
+
 		assertEquals(cache.getId(), cacheResponse.getId());
 	}
 
