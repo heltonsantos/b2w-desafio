@@ -11,7 +11,13 @@
     * Ao final completo da build, execute a aplicação:
       * Dentro do diretório do projeto execute o comando <strong>gradle bootrun</strong> no terminal.
 
-3) Frameworks utilizados
+3) Teste
+   * Testes automatizados foram criados através do Junit.
+   * Para testes manuais, você pode utilizar os seguintes links:
+      * Recupera uma lista com todas as vendas: http://localhost:9000/totalvendas/getVendas
+      * Recupera o total de vendas em um determinado período: http://localhost:9000/totalvendas/getTotalVendas?data_inicio=01-07-15&data_fim=30-06-16
+
+4) Frameworks utilizados
    * Springboot: Para configuração de todos os componentes básicos de um projeto java web. Como:
       * Injeção de dependencia
       * Webservices
@@ -19,6 +25,6 @@
    * Junit: Para testes automatizados
    * Gson: Para conversão de objetos java em json.
    
-4) Banco de dados
+5) Banco de dados
    * Foi utilizado o banco de dados H2, que é um banco de dados relacionado em memória já fornecido pelo Springboot, que não precisa ser previamente instalado.
    * Obs: Para esta solução, o ideal é utilizar um banco de dados Nosql, como o Redis. Mas como era necessário realizar sua instalação e configuração em uma máquina, foi preferível utilizar para este protótipo um banco em memória.
