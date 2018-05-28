@@ -1,5 +1,7 @@
 # Desafio - Total vendas
 
+De modo geral, a solução para o desafio é baseada em um middleware auxiliado por um sistema de cache. Uma vez requisitada uma consulta sobre o total de vendas em um determinado período, o cálculo do total de vendas é executado, retornado e posteriormente salvo em cache. Toda vez que uma consulta é requisitada, o middleware intercepta a requisição e verifica existência da consulta em cache. Se a consulta já foi realizada uma vez, ela estará em cache e sua resposta é retornada rapidadamente. Se a consulta não está em cache, a requisição é retornada para o controlador responsável.
+
 1) Pré-requisito para execução da aplicação
     * Gradle 4.0 ou superior instalado e configurado.
     * Java JDK 8 instalado e configurado (configurar também o JAVA_HOME).
