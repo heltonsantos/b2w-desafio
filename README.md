@@ -2,12 +2,12 @@
 
 1) Pré-requisito para execução da aplicação
     * Gradle 4.0 ou superior instalado e configurado.
-   	* Java JDK 8 instalado e configurado.
+    * Java JDK 8 instalado e configurado (configurar também o JAVA_HOME).
 
 2) Executar a aplicação
     * Para executar a aplicação é necessário primeiramente fazer a build do projeto:
       * Dentro do diretório do projeto execute o comando <strong>gradle build</strong> no terminal.
-      * Obs: Se alguma dependencia falhar, você pode utilizar o comando <strong>gradle build --refresh-dependencies</strong> para fazer o download das dependencias novamente.
+      * Obs: Se alguma dependência falhar no download, você pode utilizar o comando <strong>gradle build --refresh-dependencies</strong> para fazer o download das dependencias novamente.
     * Ao final completo da build, execute a aplicação:
       * Dentro do diretório do projeto execute o comando <strong>gradle bootrun</strong> no terminal.
 
